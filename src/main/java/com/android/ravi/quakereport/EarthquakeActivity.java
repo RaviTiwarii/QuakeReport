@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -58,8 +59,13 @@ public class EarthquakeActivity extends AppCompatActivity implements
     @Override
     public void onLoadFinished(@NonNull Loader<List<Earthquake>> loader,
                                @Nullable List<Earthquake> earthquakes) {
+        View loadingIndicator = findViewById(R.id.loading_indicator);
+        loadingIndicator.setVisibility(View.GONE);
+
         emptyStateTextView.setText(R.string.no_earthquakes);
+
         adapter.clear();
+
         if (earthquakes != null && !earthquakes.isEmpty()) adapter.addAll(earthquakes);
     }
 
