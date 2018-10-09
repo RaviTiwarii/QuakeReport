@@ -2,17 +2,19 @@ package com.android.ravi.quakereport;
 
 public class Earthquake {
 
-    private String magnitude;
+    private double magnitude;
     private String location;
-    private String date;
+    private long timeInMilliseconds;
+    private String url;
 
-    public Earthquake(String magnitude, String location, String date) {
+    public Earthquake(double magnitude, String location, long timeInMilliseconds, String url) {
         this.magnitude = magnitude;
         this.location = location;
-        this.date = date;
+        this.timeInMilliseconds = timeInMilliseconds;
+        this.url = url;
     }
 
-    public String getMagnitude() {
+    public double getMagnitude() {
         return magnitude;
     }
 
@@ -20,7 +22,11 @@ public class Earthquake {
         return location;
     }
 
-    public String getDate() {
-        return date;
+    public long getTimeInMilliseconds() {
+        return timeInMilliseconds;
+    }
+
+    public String getUrl() {
+        return url;
     }
 }
